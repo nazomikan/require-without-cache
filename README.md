@@ -73,9 +73,9 @@ However, you may want to carry out the test without a problem if you use the `re
 
 ## API
 
-* requireWithoutCache(path, [require])
+* requireWithoutCache(path, require)
   * path {String} filePath
-  * [require] {Function} require method
+  * require {Function} require method
 
 ## If using custom require
 

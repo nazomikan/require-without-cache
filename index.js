@@ -12,12 +12,7 @@ module.exports = function (filePath, customRequire) {
     , targetModule
     ;
 
-  if (customRequire) {
-    filePath = customRequire.resolve(filePath);
-  } else {
-    filePath = path.resolve(path.dirname(module.parent.filename), filePath);
-    customRequire = module.parent.require;
-  }
+  filePath = customRequire.resolve(filePath);
 
   // save cache
   cache = require.cache[filePath];
@@ -29,6 +24,3 @@ module.exports = function (filePath, customRequire) {
 
   return targetModule;
 };
-
-// for update module.parent
-delete require.cache[__filename];

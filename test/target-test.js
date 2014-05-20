@@ -17,7 +17,7 @@ describe('#handle (normal require)', function () {
         return {get: function (name, cb) { return cb(null, res); }};
       });
 
-      target = requireWithoutCache('./target');
+      target = requireWithoutCache('./target', require);
       target.handle(function (err, data) {
         assert.ok(data, expect);
         model.create.restore();

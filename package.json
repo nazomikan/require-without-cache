@@ -1,6 +1,6 @@
 {
   "name": "require-without-cache",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "require module without cache",
   "main": "index.js",
   "scripts": {
