@@ -17,7 +17,7 @@ module.exports = function (path, require) {
   module = require(path);
 
   // restore cache
-  require.cache[path] = cache[path];
+  require.cache[path] = cache;
 
   return module;
 };
