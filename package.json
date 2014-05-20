@@ -1,20 +1,28 @@
 {
   "name": "require-without-cache",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "require module without cache",
   "main": "index.js",
   "scripts": {
-    "test": ""
+    "test": "mocha --reporter spec test/target-test.js"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/nazomikan/require-without-cache"
   },
-  "keywords": ["require", "cache", "stub"],
+  "keywords": [
+    "require",
+    "cache",
+    "stub"
+  ],
   "author": "nazomikan",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/nazomikan/require-without-cache/issues"
   },
-  "homepage": "https://github.com/nazomikan/require-without-cache"
+  "homepage": "https://github.com/nazomikan/require-without-cache",
+  "devDependencies": {
+    "mocha": "^1.19.0",
+    "sinon": "^1.10.0"
+  }
 }

@@ -44,7 +44,7 @@ var requireWithoutCache = require('require-without-cache')
 describe('#handle', function () {
   it('should be error', function (done) {
     var model = require('path/to/model')
-      , sinon = require('sinon');
+      , sinon = require('sinon')
       , target
       ;
 
