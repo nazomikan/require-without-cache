@@ -24,7 +24,7 @@ It is intended to be used in the spec file.
 target file
 
 ```javascript
-var model = require('path/to/model');
+var model = require('path/to/model').create();
 
 exports.handle = function (cb) {
   model.get('foo/model', function (err, res) {
@@ -37,6 +37,8 @@ spec file
 
 ```javascript
 var requireWithoutCache = require('require-without-cache')
+  , sinon = require('sinon')
+  , assert = require('assert')
   ;
 
 describe('#handle', function () {
@@ -47,7 +49,7 @@ describe('#handle', function () {
       ;
 
     sinon.stub(model, 'create', function () {
-      return {get: function (name, cb) { return cb('i_am_error'); }};
+      return {get: function (name, cb) { return cb('an_error'); }};
     });
 
     target = requireWithoutCache('./path/to/module', require); // [1]
