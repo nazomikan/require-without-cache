@@ -35,7 +35,7 @@ spec file
 var requireWithoutCache = require('requireWithoutCache')
   ;
 
-describe('#handle, function () {
+describe('#handle', function () {
   it('should be error', function (done) {
     var model = require('path/to/model')
       , sinon = require('sinon');
