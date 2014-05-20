@@ -1,23 +1,34 @@
+var path = require('path')
+  ;
+
 /**
- * require module without cache
+ * customRequire module without cache
  *
- * @param {String} path [module path]
- * @param {Function} require [module.require or compatible custom require]
+ * @param {String} filePath [module filePath]
+ * @param {Function} customRequire [module.customRequire or compatible custom customRequire]
  */
-module.exports = function (path, require) {
+module.exports = function (filePath, customRequire) {
   var cache
-    , module
+    , targetModule
     ;
 
-  path = require.resolve(path);
+  if (customRequire) {
+    filePath = customRequire.resolve(filePath);
+  } else {
+    filePath = path.resolve(path.dirname(module.parent.filename), filePath);
+    customRequire = module.parent.require;
+  }
 
   // save cache
-  cache = require.cache[path];
-  delete require.cache[path];
-  module = require(path);
+  cache = require.cache[filePath];
+  delete require.cache[filePath];
+  targetModule = customRequire(filePath);
 
   // restore cache
-  require.cache[path] = cache;
+  require.cache[filePath] = cache;
 
-  return module;
+  return targetModule;
 };
+
+// for update module.parent
+delete require.cache[__filename];

@@ -71,6 +71,12 @@ by require.cache
 However, you may want to carry out the test without a problem if you use the `require-without-cache`.
 
 
+## API
+
+* requireWithoutCache(path, [require])
+  * path {String} filePath
+  * [require] {Function} require method
+
 ## If using custom require
 
 Please define an API for use by the following.

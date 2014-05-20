@@ -17,7 +17,7 @@ describe('#handle (normal require)', function () {
         return {get: function (name, cb) { return cb(null, res); }};
       });
 
-      target = requireWithoutCache('./target', require); // [1]
+      target = requireWithoutCache('./target');
       target.handle(function (err, data) {
         assert.ok(data, expect);
         model.create.restore();
@@ -39,7 +39,7 @@ describe('#handle (normal require)', function () {
         return {get: function (name, cb) { return cb(error); }};
       });
 
-      target = requireWithoutCache('./target', require); // [1]
+      target = requireWithoutCache('./target', require);
       target.handle(function (err, data) {
         assert.strictEqual(err, expect);
         model.create.restore();
@@ -66,7 +66,7 @@ describe('#handle2 (custom require)', function () {
         return {get: function (name, cb) { return cb(null, res); }};
       });
 
-      target = requireWithoutCache('test/target', requireFromAppRoot); // [1]
+      target = requireWithoutCache('test/target', requireFromAppRoot);
       target.handle(function (err, data) {
         assert.ok(data, expect);
         model.create.restore();
@@ -88,7 +88,7 @@ describe('#handle2 (custom require)', function () {
         return {get: function (name, cb) { return cb(error); }};
       });
 
-      target = requireWithoutCache('test/target', requireFromAppRoot); // [1]
+      target = requireWithoutCache('test/target', requireFromAppRoot);
       target.handle(function (err, data) {
         assert.strictEqual(err, expect);
         model.create.restore();
