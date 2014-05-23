@@ -101,9 +101,6 @@ requireFromAppRoot.resolve = function (relativePath) {
 Object.defineProperty(requireFromAppRoot, 'cache', {
   get: function () {
     return require.cache;
-  },
-  set: function (cache) {
-    return (require.cache = cache);
   }
 });
 ```
